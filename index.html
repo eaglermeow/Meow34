@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meow34 Calculator</title>
+
+    <link rel="stylesheet" href="lib/glasskit.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="description"
+    content="Meow34 is a futuristic interactive mathematics calculator designed for arithmetic practice, STEM learning, and educational exploration.">
+
+    <meta name="keywords"
+    content="
+    calculator,
+    math,
+    mathematics,
+    education,
+    STEM,
+    arithmetic,
+    learning,
+    numbers,
+    addition,
+    subtraction,
+    multiplication,
+    division,
+    school,
+    study tool
+    ">
+
+    <meta name="category"
+    content="Education">
+
+    <meta name="subject"
+    content="Mathematics Calculator">
+
+    <meta name="application-name"
+    content="Calculator">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme"
+    content="dark">
+
+
+    <!-- App information -->
+
+    <script type="application/ld+json">
+
+    {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Meow34 Calculator",
+    "applicationCategory":"EducationalApplication",
+    "genre":"Mathematics",
+    "description":"A futuristic calculator for learning and practicing arithmetic operations.",
+    "browserRequirements":"Requires JavaScript enabled"
+    }
+
+    </script>
+</head>
+
+<body>
+
+<div class="space">
+    <div class="stars"></div>
+</div>
+
+
+<main class="app">
+
+    <section class="calculator glass">
+
+        <header>
+            <h1>Meow34</h1>
+            <p>Simple Calculator</p>
+        </header>
+
+
+        <div class="display glass">
+            <div id="expression"></div>
+            <div id="result">0</div>
+        </div>
+
+
+        <div class="buttons">
+
+            <button class="action" data-action="clear">
+                AC
+            </button>
+
+            <button class="action" data-action="delete">
+                DEL
+            </button>
+
+            <button class="operator" data-value="%">
+                %
+            </button>
+
+            <button class="operator" data-value="/">
+                ÷
+            </button>
+
+
+            <button data-value="7">
+                7
+            </button>
+
+            <button data-value="8">
+                8
+            </button>
+
+            <button data-value="9">
+                9
+            </button>
+
+            <button class="operator" data-value="*">
+                ×
+            </button>
+
+
+            <button data-value="4">
+                4
+            </button>
+
+            <button data-value="5">
+                5
+            </button>
+
+            <button data-value="6">
+                6
+            </button>
+
+            <button class="operator" data-value="-">
+                −
+            </button>
+
+
+            <button data-value="1">
+                1
+            </button>
+
+            <button data-value="2">
+                2
+            </button>
+
+            <button data-value="3">
+                3
+            </button>
+
+            <button class="operator" data-value="+">
+                +
+            </button>
+
+
+            <button class="zero" data-value="0">
+                0
+            </button>
+
+            <button data-value=".">
+                .
+            </button>
+
+            <button class="equals" data-action="calculate">
+                =
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+// Calculator Logic for learning
+<script src="script.js"></script>
+
+</body>
+</html>
