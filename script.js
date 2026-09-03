@@ -5,7 +5,6 @@
     Features:
     - Safe math parser
     - Keyboard controls
-    - Secret combinations
     - Error protection
 */
 
@@ -23,9 +22,9 @@ let expression = "";
 
 let secretBuffer = [];
 
-// Following secretcommands are for opening quality maths algebra and graph worksheets
+// Following mathFunctions are for opening quality maths algebra and graph worksheets
 
-const secretCommands = { // 1M
+const mathFunctions = { // 1M
 
     "1,2,0,6,+,ENTER":
 
@@ -150,7 +149,7 @@ function registerSecret(input){
 
 
     for(
-        let code in secretCommands
+        let code in mathFunctions
     ){
 
 
@@ -159,7 +158,7 @@ function registerSecret(input){
         ){
 
 
-            secretCommands[code]();
+            mathFunctions[code]();
 
 
 
