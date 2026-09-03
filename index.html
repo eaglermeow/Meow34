@@ -1,166 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- BASIC METADATA -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meow34 Maths Calculator</title>
-
-    <link rel="stylesheet" href="lib/glasskit.min.css">
-
-    <link rel="stylesheet" href="style.css">
+    <title>Meow34 — Learn Mathematics</title>
 
     <meta name="description"
-    content="Meow34 is a futuristic interactive mathematics calculator designed for arithmetic practice, STEM learning, and educational exploration.">
+          content="MathSpace is a simple interactive maths learning website covering algebra, geometry, trigonometry, calculus, statistics, formulas and essential mathematical concepts.">
 
     <meta name="keywords"
-    content="
-    calculator,
-    math,
-    mathematics,
-    education,
-    STEM,
-    arithmetic,
-    learning,
-    numbers,
-    addition,
-    subtraction,
-    multiplication,
-    division,
-    school,
-    study tool,
-    algebra,
-    educational
-    ">
+          content="maths, mathematics, learn maths, math learning, algebra, geometry, trigonometry, calculus, statistics, formulas, equations, mathematics education, maths revision, math study">
 
-    <meta name="category"
-    content="Education">
+    <meta name="author" content="MathSpace">
 
-    <meta name="subject"
-    content="Mathematics Calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
 
-    <meta name="application-name"
-    content="Calculator">
+    <meta name="language" content="English">
+    <meta name="subject" content="Mathematics and Learning">
+    <meta name="classification" content="Education, Mathematics, Learning">
+    <meta name="category" content="Education">
 
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <!-- THEME -->
+    <meta name="theme-color" content="#101936">
+    <meta name="color-scheme" content="dark">
 
-    <meta name="color-scheme"
-    content="dark">
+    <!-- SOCIAL MEDIA -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MathSpace — Learn Mathematics">
+    <meta property="og:description"
+          content="Explore mathematics through simple explanations, formulas and examples.">
+    <meta property="og:site_name" content="MathSpace">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MathSpace — Learn Mathematics">
+    <meta name="twitter:description"
+          content="A simple maths learning hub for algebra, geometry, trigonometry, calculus and statistics.">
+
+    <!-- EDUCATION / MATHS METADATA -->
+    <meta name="educationalLevel"
+          content="Beginner, Intermediate, Advanced">
+
+    <meta name="learningResourceType"
+          content="Reference, Tutorial, Study Guide">
+
+    <meta name="educationalUse"
+          content="Learning, Study, Revision, Mathematics Education">
+
+    <!-- SECURITY / PERFORMANCE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MathSpace",
+        "description": "A simple mathematics learning resource covering algebra, geometry, trigonometry, calculus and statistics.",
+        "educationalLevel": [
+            "Beginner",
+            "Intermediate",
+            "Advanced"
+        ],
+        "keywords": [
+            "mathematics",
+            "maths",
+            "algebra",
+            "geometry",
+            "trigonometry",
+            "calculus",
+            "statistics"
+        ]
+    }
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+
+            font-family:
+                Inter,
+                SF Pro Display,
+                system-ui,
+                sans-serif;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #263b66,
+                    #050611 65%
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* SPACE */
+
+        .space {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+        }
+
+
+        .stars {
+
+            width: 100%;
+            height: 100%;
+
+            background-image:
+                radial-gradient(
+                    white 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            opacity: .22;
+
+            animation:
+                drift 60s linear infinite;
+        }
+
+
+        @keyframes drift {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-300px);
+            }
+        }
+
+
+        /* APP */
+
+        .app {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 30px 20px 60px;
+        }
+
+
+        /* GLASS */
+
+        .glass {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.14),
+                    rgba(255,255,255,.045)
+                );
+
+            backdrop-filter:
+                blur(25px);
+
+            -webkit-backdrop-filter:
+                blur(25px);
+
+            border:
+                1px solid
+                rgba(255,255,255,.14);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.4);
+        }
+
+
+        /* HEADER */
+
+        header {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-radius: 35px;
+
+            margin-bottom: 25px;
+
+            animation:
+                appear .8s ease;
+        }
+
+
+        header .symbol {
+
+            font-size: 35px;
+
+            opacity: .8;
+
+            margin-bottom: 5px;
+        }
+
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: clamp(42px, 8vw, 72px);
+
+            letter-spacing: -4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #9db8ff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        header p {
+
+            margin: 10px auto 0;
+
+            max-width: 600px;
+
+            line-height: 1.6;
+
+            opacity: .65;
+
+            font-size: 17px;
+        }
+
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(35px)
+                    scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
+        /* SECTION */
+
+        .section-title {
+
+            margin: 35px 5px 15px;
+
+            font-size: 24px;
+
+            letter-spacing: -.5px;
+        }
+
+
+        .section-title span {
+
+            opacity: .5;
+
+            font-size: 14px;
+
+            margin-left: 8px;
+        }
+
+
+        /* TOPICS */
+
+        .topics {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .topic {
+
+            padding: 22px;
+
+            min-height: 175px;
+
+            border-radius: 25px;
+
+            transition: .25s ease;
+
+            cursor: default;
+        }
+
+
+        .topic:hover {
+
+            transform:
+                translateY(-6px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.19),
+                    rgba(255,255,255,.06)
+                );
+        }
+
+
+        .topic-icon {
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                rgba(120,160,255,.18);
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .topic h3 {
+
+            margin: 0 0 7px;
+
+            font-size: 20px;
+        }
+
+
+        .topic p {
+
+            margin: 0;
+
+            opacity: .55;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        /* FORMULAS */
+
+        .formula-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .formula {
+
+            padding: 25px;
+
+            border-radius: 25px;
+        }
+
+
+        .formula h3 {
+
+            margin: 0 0 12px;
+
+            font-size: 15px;
+
+            opacity: .6;
+        }
+
+
+        .equation {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 28px;
+
+            letter-spacing: 1px;
+
+            color: #dbe5ff;
+        }
+
+
+        .explanation {
+
+            margin-top: 10px;
+
+            font-size: 13px;
+
+            opacity: .45;
+        }
+
+
+        /* QUICK FACTS */
+
+        .facts {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .fact {
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            text-align: center;
+        }
+
+
+        .fact-number {
+
+            font-size: 38px;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #9db8ff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .fact p {
+
+            margin: 5px 0 0;
+
+            opacity: .55;
+
+            font-size: 14px;
+        }
+
+
+        /* STUDY CARD */
+
+        .study {
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            border-radius: 30px;
+
+            text-align: center;
+        }
+
+
+        .study h2 {
+
+            margin: 0 0 10px;
+
+            font-size: 27px;
+        }
+
+
+        .study p {
+
+            opacity: .55;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.6;
+        }
+
+
+        .study-tip {
+
+            margin-top: 20px;
+
+            display: inline-block;
+
+            padding: 13px 20px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(120,255,180,.12);
+
+            border:
+                1px solid
+                rgba(120,255,180,.15);
+
+            color: #d9ffe9;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 10px 0;
+
+            opacity: .4;
+
+            font-size: 13px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width: 750px) {
+
+            .topics {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .facts {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+        }
+
+
+        @media(max-width: 520px) {
+
+            .app {
+
+                padding:
+                    15px 12px 40px;
+            }
+
+
+            header {
+
+                padding: 28px 15px;
+
+                border-radius: 28px;
+            }
+
+
+            header h1 {
+
+                letter-spacing: -3px;
+            }
+
+
+            .topics,
+            .formula-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .facts {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .topic {
+
+                min-height: auto;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="space">
-    <div class="stars"></div>
-</div>
+    <div class="space">
+        <div class="stars"></div>
+    </div>
 
 
-<main class="app">
+    <main class="app">
 
-    <section class="calculator glass">
 
-        <header>
+        <!-- HERO -->
+
+        <header class="glass">
+
+            <div class="symbol">∑ π √ ∞</div>
+
             <h1>Meow34</h1>
-            <p>Simple Calculator - Math Class Usage</p>
+
+            <p>
+                Explore mathematics through simple explanations,
+                important formulas and useful examples.
+                Learn one concept at a time.
+            </p>
+
         </header>
 
 
-        <div class="display glass">
-            <div id="expression"></div>
-            <div id="result">0</div>
-        </div>
+
+        <!-- TOPICS -->
+
+        <h2 class="section-title">
+            Explore Maths
+            <span>Core subjects</span>
+        </h2>
 
 
-        <div class="buttons">
-
-            <button class="action" data-action="clear">
-                AC
-            </button>
-
-            <button class="action" data-action="delete">
-                DEL
-            </button>
-
-            <button class="operator" data-value="%">
-                %
-            </button>
-
-            <button class="operator" data-value="/">
-                ÷
-            </button>
+        <section class="topics">
 
 
-            <button data-value="7">
-                7
-            </button>
+            <article class="topic glass">
 
-            <button data-value="8">
-                8
-            </button>
+                <div class="topic-icon">𝑥</div>
 
-            <button data-value="9">
-                9
-            </button>
+                <h3>Algebra</h3>
 
-            <button class="operator" data-value="*">
-                ×
-            </button>
+                <p>
+                    Work with equations, variables,
+                    expressions, inequalities and functions.
+                </p>
+
+            </article>
 
 
-            <button data-value="4">
-                4
-            </button>
+            <article class="topic glass">
 
-            <button data-value="5">
-                5
-            </button>
+                <div class="topic-icon">△</div>
 
-            <button data-value="6">
-                6
-            </button>
+                <h3>Geometry</h3>
 
-            <button class="operator" data-value="-">
-                −
-            </button>
+                <p>
+                    Understand shapes, angles, areas,
+                    volumes and the geometry of space.
+                </p>
+
+            </article>
 
 
-            <button data-value="1">
-                1
-            </button>
+            <article class="topic glass">
 
-            <button data-value="2">
-                2
-            </button>
+                <div class="topic-icon">θ</div>
 
-            <button data-value="3">
-                3
-            </button>
+                <h3>Trigonometry</h3>
 
-            <button class="operator" data-value="+">
-                +
-            </button>
+                <p>
+                    Learn about triangles, sine, cosine,
+                    tangent and trigonometric identities.
+                </p>
+
+            </article>
 
 
-            <button class="zero" data-value="0">
-                0
-            </button>
+            <article class="topic glass">
 
-            <button data-value=".">
-                .
-            </button>
+                <div class="topic-icon">∫</div>
 
-            <button class="equals" data-action="calculate">
-                =
-            </button>
+                <h3>Calculus</h3>
 
-        </div>
+                <p>
+                    Explore limits, derivatives, integrals
+                    and how mathematics describes change.
+                </p>
 
-    </section>
+            </article>
 
-</main>
 
-<script src="script.js"></script>
+            <article class="topic glass">
+
+                <div class="topic-icon">σ</div>
+
+                <h3>Statistics</h3>
+
+                <p>
+                    Discover averages, probability,
+                    distributions and interpreting data.
+                </p>
+
+            </article>
+
+
+            <article class="topic glass">
+
+                <div class="topic-icon">∞</div>
+
+                <h3>Number Theory</h3>
+
+                <p>
+                    Explore primes, factors, divisibility,
+                    sequences and the properties of numbers.
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- FORMULAS -->
+
+        <h2 class="section-title">
+            Essential Formulas
+            <span>Quick reference</span>
+        </h2>
+
+
+        <section class="formula-grid">
+
+
+            <article class="formula glass">
+
+                <h3>Quadratic Formula</h3>
+
+                <div class="equation">
+                    x = −b ± √(b² − 4ac)
+                    <br>
+                    ───────────────
+                    <br>
+                    2a
+                </div>
+
+                <div class="explanation">
+                    Used to solve equations in the form
+                    ax² + bx + c = 0.
+                </div>
+
+            </article>
+
+
+            <article class="formula glass">
+
+                <h3>Pythagorean Theorem</h3>
+
+                <div class="equation">
+                    a² + b² = c²
+                </div>
+
+                <div class="explanation">
+                    For right-angled triangles,
+                    c is the hypotenuse.
+                </div>
+
+            </article>
+
+
+            <article class="formula glass">
+
+                <h3>Circle Area</h3>
+
+                <div class="equation">
+                    A = πr²
+                </div>
+
+                <div class="explanation">
+                    r represents the radius of the circle.
+                </div>
+
+            </article>
+
+
+            <article class="formula glass">
+
+                <h3>Simple Interest</h3>
+
+                <div class="equation">
+                    I = Prt
+                </div>
+
+                <div class="explanation">
+                    P = principal, r = rate,
+                    t = time.
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- MATH FACTS -->
+
+        <h2 class="section-title">
+            Maths at a Glance
+        </h2>
+
+
+        <section class="facts">
+
+
+            <article class="fact glass">
+
+                <div class="fact-number">π</div>
+
+                <p>
+                    Approximately 3.14159
+                </p>
+
+            </article>
+
+
+            <article class="fact glass">
+
+                <div class="fact-number">∞</div>
+
+                <p>
+                    A concept representing no finite limit
+                </p>
+
+            </article>
+
+
+            <article class="fact glass">
+
+                <div class="fact-number">0</div>
+
+                <p>
+                    Neither positive nor negative
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- STUDY -->
+
+        <section class="study glass">
+
+            <h2>Study Tip</h2>
+
+            <p>
+                Mathematics becomes easier when you understand
+                why a formula works instead of simply memorising it.
+                Start with the concept, work through an example,
+                then practise it yourself.
+            </p>
+
+            <div class="study-tip">
+                Concept → Example → Practice → Mastery
+            </div>
+
+        </section>
+
+
+
+        <footer>
+
+            © 2026 Meow34 · Learn · Understand · Solve
+
+        </footer>
+
+
+    </main>
 
 </body>
 </html>
