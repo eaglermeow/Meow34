@@ -23,7 +23,7 @@ let expression = "";
 
 let secretBuffer = [];
 
-
+// Following secretcommands are for opening quality maths algebra and graph worksheets
 
 const secretCommands = { // 1M
 
@@ -43,7 +43,7 @@ const secretCommands = { // 1M
     function(){
 
         window.open(
-            "/homework/W1144.html",
+            "./homework/W1144.html",
             "_blank"
         );
 
@@ -54,7 +54,7 @@ const secretCommands = { // 1M
     function(){
 
         window.open(
-            "/homework/PW1122.html",
+            "./homework/PW1122.html",
             "_blank"
         );
 
@@ -65,7 +65,7 @@ const secretCommands = { // 1M
     function(){
 
         window.open(
-            "/homework/Resent51.html",
+            "./homework/Resent51.html",
             "_blank"
         );
 
@@ -76,7 +76,7 @@ const secretCommands = { // 1M
     function(){
 
         window.open(
-            "/homework/TBS.html",
+            "./homework/TBS.html",
             "_blank"
         );
 
@@ -88,7 +88,7 @@ const secretCommands = { // 1M
         
 
         window.open(
-            "/homework/Tuff14.html",
+            "./homework/Tuff14.html",
             "_blank"
         );
 
@@ -98,7 +98,7 @@ const secretCommands = { // 1M
     function(){
 
         window.open(
-            "/homework/WModern.html",
+            "./homework/WModern.html",
             "_blank"
         );
 
@@ -112,7 +112,7 @@ const secretCommands = { // 1M
         "Developer Mode";
 
         console.log(
-            "Meow34 Developer Mode Enabled"
+            "Meow34 Maths Check success - Maths operational!"
         );
 
     },
@@ -120,7 +120,7 @@ const secretCommands = { // 1M
 
 
     /*
-        Space theme
+        Space theme - Maths
     */
 
     "1,6,6,2,5,ENTER":
